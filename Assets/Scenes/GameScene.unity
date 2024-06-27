@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+  m_IndirectSpecularColor: {r: 0.5056092, g: 0.44147137, b: 0.45263278, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1128,7 +1129,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8939906810257130690, guid: a5e8ae6d4c0302d44bff52c33c6fbcb9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e8ae6d4c0302d44bff52c33c6fbcb9, type: 3}
@@ -1953,6 +1955,7 @@ MonoBehaviour:
   BallsList:
   - {fileID: 5870455847936861919, guid: 92c0b7931a4110842913047b38eddffc, type: 3}
   LiveBall: {fileID: 0}
+  PinPref: {fileID: 0}
 --- !u!4 &1593873925
 Transform:
   m_ObjectHideFlags: 0
