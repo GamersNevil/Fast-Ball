@@ -101,9 +101,10 @@ public class UIManager : MonoBehaviour
     {
 
         //SoundManager.Instance.playButtonSound();
-
+        
         //LevelManager.instance.DestroyLevel();
         // LevelManager.instance.CreateLevel();
+       // LevelScript.instance.OBSGenrete();
         LevelManager.instance.ResetLevel();
         panelmanage(PLAYPANEL);
     }
