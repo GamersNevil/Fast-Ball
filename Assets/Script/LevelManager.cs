@@ -7,13 +7,15 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     public List<GameObject> Levels;
-
+    
     public int current_level;
     public GameObject infotext;
 
     public CinemachineVirtualCamera cinemachineVirtual;
     public List<GameObject> BallsList;
+ 
     public GameObject LiveBall;
+    public GameObject PinPref;
     
  
     private void Start()
@@ -33,6 +35,7 @@ public class LevelManager : MonoBehaviour
       
         Debug.Log("CreateLevel" + PlayerPrefs.GetInt("level"));
         int levelInt = PlayerPrefs.GetInt("level");
+      
         ResetLevel();
        // UIManager.instance.levelShowText.text = (levelInt + 1).ToString();
 
@@ -93,13 +96,14 @@ public class LevelManager : MonoBehaviour
         LiveBall.transform.localScale=Vector3.zero;
         LiveBall.transform.DOScale(Vector3.one,0.5f).SetEase(Ease.OutBounce);
         Invoke("setCamera",0.02f);
+        PinGenrete();
         //---------------------------------------------------------
-        LevelScript levelScript = Levels[PlayerPrefs.GetInt("level")].GetComponent<LevelScript>();  
-      
-        for (int i = 0; i < levelScript.ResetOBSlist.Count; i++)
-        {
-            levelScript.ResetOBSlist[i].gameObject.transform.position = levelScript.ResetOBSlist[i].MyPos;
-        }
+        // LevelScript levelScript = Levels[PlayerPrefs.GetInt("level")].GetComponent<LevelScript>();
+
+        /*  for (int i = 0; i < levelScript.ResetOBSlist.Count; i++)
+          {
+              levelScript.ResetOBSlist[i].gameObject.transform.position = levelScript.ResetOBSlist[i].MyPos;
+          }*/
 
     }
     //ShowTextStop()
@@ -112,5 +116,18 @@ public class LevelManager : MonoBehaviour
     public void ShowTextStop()
     {
         infotext.SetActive(false);
+    }
+    public void PinGenrete() {
+        GameObject PinParent = Levels[PlayerPrefs.GetInt("level")].transform.GetChild(0).gameObject;
+        if (PinParent.transform.childCount > 0)
+        {
+            Destroy(PinParent.transform.GetChild(0).gameObject);
+            Instantiate(PinPref, PinParent.transform);
+        }
+        else {
+            Instantiate(PinPref, PinParent.transform);
+        }
+      
+       
     }
 }
