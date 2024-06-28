@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     //string QUITPANEL = "QUITPANEL";
     public TextMeshProUGUI levelShowText;
 
-
+    public bool IsMove=false;
     void Start()
     {
         instance = this;
@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
         {
             if (!HomePanel.activeSelf)
             {
+                
                 PlayPanle.SetActive(true);
             }
         }
@@ -84,6 +85,7 @@ public class UIManager : MonoBehaviour
         //SoundManager.Instance.playButtonSound();
         panelmanage(PLAYPANEL);
         LevelManager.instance.CreateLevel();
+        IsMove=true;
     }
 
     public void GameOverScreen()
